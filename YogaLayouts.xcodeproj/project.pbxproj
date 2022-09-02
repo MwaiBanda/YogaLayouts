@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BA2730088F486231AED026 /* Pods_YogaLayoutsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C4D4C30CE7A62306B2BF3ED /* Pods_YogaLayoutsTests.framework */; };
 		1CC795E428C13B0F00A2F0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */; };
-		1CC795E628C13B0F00A2F0CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E528C13B0F00A2F0CF /* SceneDelegate.swift */; };
 		1CC795E828C13B0F00A2F0CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E728C13B0F00A2F0CF /* ViewController.swift */; };
-		1CC795EB28C13B0F00A2F0CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC795E928C13B0F00A2F0CF /* Main.storyboard */; };
 		1CC795ED28C13B1000A2F0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC795EC28C13B1000A2F0CF /* Assets.xcassets */; };
 		1CC795F028C13B1000A2F0CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC795EE28C13B1000A2F0CF /* LaunchScreen.storyboard */; };
 		1CC795FB28C13B1100A2F0CF /* YogaLayoutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795FA28C13B1100A2F0CF /* YogaLayoutsTests.swift */; };
 		1CC7960528C13B1100A2F0CF /* YogaLayoutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC7960428C13B1100A2F0CF /* YogaLayoutsUITests.swift */; };
 		1CC7960728C13B1100A2F0CF /* YogaLayoutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC7960628C13B1100A2F0CF /* YogaLayoutsUITestsLaunchTests.swift */; };
+		84E518217F83607F5820E85C /* Pods_YogaLayouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B92F2852E02F04D8DA5FA5 /* Pods_YogaLayouts.framework */; };
+		8CC495863D02B64C18F50262 /* Pods_YogaLayouts_YogaLayoutsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF1C177A26AD309A7BCD40 /* Pods_YogaLayouts_YogaLayoutsUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +39,7 @@
 /* Begin PBXFileReference section */
 		1CC795E028C13B0F00A2F0CF /* YogaLayouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaLayouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1CC795E528C13B0F00A2F0CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1CC795E728C13B0F00A2F0CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1CC795EA28C13B0F00A2F0CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CC795EC28C13B1000A2F0CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC795EF28C13B1000A2F0CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CC795F128C13B1000A2F0CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,15 @@
 		1CC7960028C13B1100A2F0CF /* YogaLayoutsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YogaLayoutsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC7960428C13B1100A2F0CF /* YogaLayoutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaLayoutsUITests.swift; sourceTree = "<group>"; };
 		1CC7960628C13B1100A2F0CF /* YogaLayoutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaLayoutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		243265F69188DE3809A95CA9 /* Pods-YogaLayouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaLayouts.release.xcconfig"; path = "Target Support Files/Pods-YogaLayouts/Pods-YogaLayouts.release.xcconfig"; sourceTree = "<group>"; };
+		2D11320E601320C79B153EFE /* Pods-YogaLayouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaLayouts.debug.xcconfig"; path = "Target Support Files/Pods-YogaLayouts/Pods-YogaLayouts.debug.xcconfig"; sourceTree = "<group>"; };
+		3AFF1C177A26AD309A7BCD40 /* Pods_YogaLayouts_YogaLayoutsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaLayouts_YogaLayoutsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5363FA4C2212FDE80097E23D /* Pods-YogaLayouts-YogaLayoutsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaLayouts-YogaLayoutsUITests.debug.xcconfig"; path = "Target Support Files/Pods-YogaLayouts-YogaLayoutsUITests/Pods-YogaLayouts-YogaLayoutsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		86B92F2852E02F04D8DA5FA5 /* Pods_YogaLayouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaLayouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4D4C30CE7A62306B2BF3ED /* Pods_YogaLayoutsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaLayoutsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7FEA20D5816E8E157A0B835 /* Pods-YogaLayoutsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaLayoutsTests.release.xcconfig"; path = "Target Support Files/Pods-YogaLayoutsTests/Pods-YogaLayoutsTests.release.xcconfig"; sourceTree = "<group>"; };
+		C760F44BCD7E1EDD86FD9D57 /* Pods-YogaLayouts-YogaLayoutsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaLayouts-YogaLayoutsUITests.release.xcconfig"; path = "Target Support Files/Pods-YogaLayouts-YogaLayoutsUITests/Pods-YogaLayouts-YogaLayoutsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F87788DCDD16D8D2A6D5B107 /* Pods-YogaLayoutsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaLayoutsTests.debug.xcconfig"; path = "Target Support Files/Pods-YogaLayoutsTests/Pods-YogaLayoutsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E518217F83607F5820E85C /* Pods_YogaLayouts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BA2730088F486231AED026 /* Pods_YogaLayoutsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CC495863D02B64C18F50262 /* Pods_YogaLayouts_YogaLayoutsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +94,8 @@
 				1CC795F928C13B1100A2F0CF /* YogaLayoutsTests */,
 				1CC7960328C13B1100A2F0CF /* YogaLayoutsUITests */,
 				1CC795E128C13B0F00A2F0CF /* Products */,
+				99CFF5E79A932B3048827983 /* Pods */,
+				F1499DD1903427E69582F387 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */,
-				1CC795E528C13B0F00A2F0CF /* SceneDelegate.swift */,
 				1CC795E728C13B0F00A2F0CF /* ViewController.swift */,
-				1CC795E928C13B0F00A2F0CF /* Main.storyboard */,
 				1CC795EC28C13B1000A2F0CF /* Assets.xcassets */,
 				1CC795EE28C13B1000A2F0CF /* LaunchScreen.storyboard */,
 				1CC795F128C13B1000A2F0CF /* Info.plist */,
@@ -127,6 +138,29 @@
 			path = YogaLayoutsUITests;
 			sourceTree = "<group>";
 		};
+		99CFF5E79A932B3048827983 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D11320E601320C79B153EFE /* Pods-YogaLayouts.debug.xcconfig */,
+				243265F69188DE3809A95CA9 /* Pods-YogaLayouts.release.xcconfig */,
+				5363FA4C2212FDE80097E23D /* Pods-YogaLayouts-YogaLayoutsUITests.debug.xcconfig */,
+				C760F44BCD7E1EDD86FD9D57 /* Pods-YogaLayouts-YogaLayoutsUITests.release.xcconfig */,
+				F87788DCDD16D8D2A6D5B107 /* Pods-YogaLayoutsTests.debug.xcconfig */,
+				B7FEA20D5816E8E157A0B835 /* Pods-YogaLayoutsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F1499DD1903427E69582F387 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86B92F2852E02F04D8DA5FA5 /* Pods_YogaLayouts.framework */,
+				3AFF1C177A26AD309A7BCD40 /* Pods_YogaLayouts_YogaLayoutsUITests.framework */,
+				8C4D4C30CE7A62306B2BF3ED /* Pods_YogaLayoutsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CC7960A28C13B1100A2F0CF /* Build configuration list for PBXNativeTarget "YogaLayouts" */;
 			buildPhases = (
+				E031C1744CA317756D0D87F0 /* [CP] Check Pods Manifest.lock */,
 				1CC795DC28C13B0F00A2F0CF /* Sources */,
 				1CC795DD28C13B0F00A2F0CF /* Frameworks */,
 				1CC795DE28C13B0F00A2F0CF /* Resources */,
+				5CF013A07BC564C974028253 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +187,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CC7960D28C13B1100A2F0CF /* Build configuration list for PBXNativeTarget "YogaLayoutsTests" */;
 			buildPhases = (
+				ADE43D1A3798DAF1799123DD /* [CP] Check Pods Manifest.lock */,
 				1CC795F228C13B1100A2F0CF /* Sources */,
 				1CC795F328C13B1100A2F0CF /* Frameworks */,
 				1CC795F428C13B1100A2F0CF /* Resources */,
@@ -169,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CC7961028C13B1100A2F0CF /* Build configuration list for PBXNativeTarget "YogaLayoutsUITests" */;
 			buildPhases = (
+				029E797BE9D23DFB5ACB017B /* [CP] Check Pods Manifest.lock */,
 				1CC795FC28C13B1100A2F0CF /* Sources */,
 				1CC795FD28C13B1100A2F0CF /* Frameworks */,
 				1CC795FE28C13B1100A2F0CF /* Resources */,
+				EEE3EF5ED1EFC8A74EEBD10F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,7 +272,6 @@
 			files = (
 				1CC795F028C13B1000A2F0CF /* LaunchScreen.storyboard in Resources */,
 				1CC795ED28C13B1000A2F0CF /* Assets.xcassets in Resources */,
-				1CC795EB28C13B0F00A2F0CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +291,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		029E797BE9D23DFB5ACB017B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YogaLayouts-YogaLayoutsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CF013A07BC564C974028253 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YogaLayouts/Pods-YogaLayouts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YogaLayouts/Pods-YogaLayouts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YogaLayouts/Pods-YogaLayouts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADE43D1A3798DAF1799123DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YogaLayoutsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E031C1744CA317756D0D87F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YogaLayouts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEE3EF5ED1EFC8A74EEBD10F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YogaLayouts-YogaLayoutsUITests/Pods-YogaLayouts-YogaLayoutsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YogaLayouts-YogaLayoutsUITests/Pods-YogaLayouts-YogaLayoutsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YogaLayouts-YogaLayoutsUITests/Pods-YogaLayouts-YogaLayoutsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1CC795DC28C13B0F00A2F0CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,7 +401,6 @@
 			files = (
 				1CC795E828C13B0F00A2F0CF /* ViewController.swift in Sources */,
 				1CC795E428C13B0F00A2F0CF /* AppDelegate.swift in Sources */,
-				1CC795E628C13B0F00A2F0CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +437,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1CC795E928C13B0F00A2F0CF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CC795EA28C13B0F00A2F0CF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1CC795EE28C13B1000A2F0CF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +564,7 @@
 		};
 		1CC7960B28C13B1100A2F0CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D11320E601320C79B153EFE /* Pods-YogaLayouts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,9 +575,9 @@
 				INFOPLIST_FILE = YogaLayouts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +593,7 @@
 		};
 		1CC7960C28C13B1100A2F0CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 243265F69188DE3809A95CA9 /* Pods-YogaLayouts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -470,9 +604,9 @@
 				INFOPLIST_FILE = YogaLayouts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,6 +622,7 @@
 		};
 		1CC7960E28C13B1100A2F0CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F87788DCDD16D8D2A6D5B107 /* Pods-YogaLayoutsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +643,7 @@
 		};
 		1CC7960F28C13B1100A2F0CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7FEA20D5816E8E157A0B835 /* Pods-YogaLayoutsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +664,7 @@
 		};
 		1CC7961128C13B1100A2F0CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5363FA4C2212FDE80097E23D /* Pods-YogaLayouts-YogaLayoutsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +683,7 @@
 		};
 		1CC7961228C13B1100A2F0CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C760F44BCD7E1EDD86FD9D57 /* Pods-YogaLayouts-YogaLayoutsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
