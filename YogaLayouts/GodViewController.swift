@@ -21,7 +21,7 @@ enum TopMenuOption: String {
     case health = "Health"
 }
 
-class ViewController: UIViewController {
+class GodViewController: UIViewController {
     var isExpandedTabBar = BehaviorRelay<Bool>(value: false)
     var isExpandedTopBar = BehaviorRelay<Bool>(value: false)
     let bag = DisposeBag()
@@ -41,16 +41,20 @@ class ViewController: UIViewController {
         .entertainment,
         .health
     ]
-    var header = BehaviorRelay<String>(value: TopMenuOption.topNews.rawValue.uppercased())
+    var tableViewContent = BehaviorSubject<[String]>(
+        value: Array(repeating: "This is content", count: 25)
+    )
+    var header = BehaviorRelay<String>(
+        value: TopMenuOption.topNews.rawValue.uppercased()
+    )
+    var tableview: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let rootView = view else {
-            return
-        }
+        guard let rootView = view else { return }
         setupUI(rootView: rootView)
     }
+    
     func setupUI(rootView: UIView) {
         rootView.backgroundColor = .white
         rootView.configureLayout { layout in
@@ -158,6 +162,7 @@ class ViewController: UIViewController {
         guard let firstOption = topMenu.subviews.first as? UIButton else { return }
         setSelectedMenuOptionColor(for: firstOption)
     }
+    
     func setupMainContent(rootView: UIView) {
         let contentbg = UIView()
         contentbg.backgroundColor = .gray.withAlphaComponent(0.25)
@@ -176,32 +181,68 @@ class ViewController: UIViewController {
             layout.isEnabled = true
             layout.width = 100%
             layout.paddingHorizontal = 5
+            layout.marginBottom = 90
             layout.flexGrow = 1
         }
         
         contentbg.addSubview(content)
         
-        let Header = UILabel()
-        Header.text = "Content"
-        Header.backgroundColor = .orange
-        Header.configureLayout { layout in
+        let banner = UIView()
+        banner.backgroundColor = .clear
+        banner.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.width = 100%
+            layout.height = 150
+            layout.alignItems = .center
+            layout.justifyContent = .center
+        }
+        
+        content.addSubview(banner)
+
+        let bannerLabel = UILabel()
+        bannerLabel.text = "banner"
+        bannerLabel.configureLayout { layout in
             layout.isEnabled = true
             layout.height = 50
-            layout.width = 100
         }
-        content.addSubview(Header)
+
+        banner.addSubview(bannerLabel)
+        tableview = {
+            let tableView = UITableView()
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+            tableView.backgroundColor = .clear
+            tableView.showsVerticalScrollIndicator = false
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            return tableView
+        }()
+        tableview.configureLayout { layout in
+            layout.isEnabled = true
+            layout.width = 100%
+            layout.flexGrow = 1
+        }
+        
+        content.addSubview(tableview)
+        
+        tableViewContent.bind(
+            to: tableview.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)
+        ){ row, content, cell in
+            cell.backgroundColor = .clear
+            cell.textLabel?.textColor = .darkGray
+            cell.textLabel?.text = content
+            
+        }.disposed(by: bag)
+        
     }
     
     func setupBottomTabBar(rootView: UIView) {
-        let bottom = UIView()
-        bottom.backgroundColor = .orange
-        bottom.configureLayout { (layout) in
+        let bottomTabBar = UIView()
+        bottomTabBar.configureLayout { (layout) in
             layout.isEnabled = true
             layout.position = .absolute
             layout.bottom = 0
             layout.width = 100%
         }
-        rootView.addSubview(bottom)
+        rootView.addSubview(bottomTabBar)
         
         let bottomContentCotainer = UIView()
         bottomContentCotainer.backgroundColor = .brown
@@ -213,10 +254,10 @@ class ViewController: UIViewController {
             
         }
         
-        bottom.addSubview(bottomContentCotainer)
+        bottomTabBar.addSubview(bottomContentCotainer)
         
         let bottomContentRow = UIView()
-        bottomContentRow.backgroundColor = .blue
+        bottomContentRow.backgroundColor = .lightBlue
         bottomContentRow.configureLayout { layout in
             layout.isEnabled = true
             layout.width = 100%
@@ -229,24 +270,24 @@ class ViewController: UIViewController {
         }
         bottomContentCotainer.addSubview(bottomContentRow)
         
-        let button2 = UIButton()
-        button2.setTitle("News Feed".uppercased(), for: .normal)
-        button2.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        button2.addTarget(self, action: #selector(didExpandTabBar), for: .touchUpInside)
-        button2.configureLayout { layout in
+        let newsFeedButton = UIButton()
+        newsFeedButton.setTitle("News Feed".uppercased(), for: .normal)
+        newsFeedButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        newsFeedButton.configureLayout { layout in
             layout.isEnabled = true
             layout.width = 33%
             layout.height = 55
             layout.alignSelf = .center
         }
         
-        bottomContentRow.addSubview(button2)
+        bottomContentRow.addSubview(newsFeedButton)
         
         let centerRow = UIView()
         centerRow.layer.shadowColor = UIColor.black.withAlphaComponent(0.25).cgColor
         centerRow.layer.shadowOpacity = 0.85
         centerRow.layer.shadowRadius = 10.0
-        centerRow.backgroundColor = .blue
+        centerRow.backgroundColor = .lightBlue
+        centerRow.layer.cornerRadius = 2
         let centerRowTapGesture = UITapGestureRecognizer(target: self, action: #selector(didExpandTabBar))
         centerRow.addGestureRecognizer(centerRowTapGesture)
         centerRow.isUserInteractionEnabled = true
@@ -262,10 +303,10 @@ class ViewController: UIViewController {
         
         bottomContentRow.addSubview(centerRow)
         
-        let button = UILabel()
-        button.text = "Options".uppercased()
-        button.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        button.configureLayout { layout in
+        let optionsButton = UILabel()
+        optionsButton.text = "Options".uppercased()
+        optionsButton.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        optionsButton.configureLayout { layout in
             layout.isEnabled = true
             layout.paddingTop = 10
             layout.alignSelf = .center
@@ -284,25 +325,24 @@ class ViewController: UIViewController {
             
         }
         centerRow.addSubview(bottomTabBarArrow)
-        centerRow.addSubview(button)
+        centerRow.addSubview(optionsButton)
         
         
         
-        let button3 = UIButton()
-        button3.setTitle("Watch".uppercased(), for: .normal)
-        button3.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        button3.addTarget(self, action: #selector(didExpandTabBar), for: .touchUpInside)
-        button3.configureLayout { layout in
+        let watchButton = UIButton()
+        watchButton.setTitle("Watch".uppercased(), for: .normal)
+        watchButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        watchButton.configureLayout { layout in
             layout.isEnabled = true
             layout.width = 33%
             layout.height = 55
             layout.alignSelf = .center
         }
         
-        bottomContentRow.addSubview(button3)
+        bottomContentRow.addSubview(watchButton)
         
         bottomContentColumn = UIView()
-        bottomContentColumn.backgroundColor = .orange
+        bottomContentColumn.backgroundColor = .lightBlue
         bottomContentColumn.tag = 100
         bottomContentColumn.configureLayout { layout in
             layout.isEnabled = true
@@ -314,56 +354,52 @@ class ViewController: UIViewController {
         bottomContentColumn.yoga.isIncludedInLayout = isExpandedTabBar.value
         bottomContentCotainer.addSubview(bottomContentColumn)
         
-        let button4 = UIButton()
-        button4.setTitle("Login", for: .normal)
-        button4.addTarget(self, action: #selector(didExpandTabBar), for: .touchUpInside)
-        button4.configureLayout { layout in
+        let loginButton = UIButton()
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.configureLayout { layout in
             layout.isEnabled = true
             layout.left = 0
-            layout.height = 40
+            layout.height = 35
             layout.paddingLeft = 20
             layout.alignSelf = .flexStart
         }
         
-        bottomContentColumn.addSubview(button4)
+        bottomContentColumn.addSubview(loginButton)
         
-        let button5 = UIButton()
-        button5.setTitle("Contact", for: .normal)
-        button5.addTarget(self, action: #selector(didExpandTabBar), for: .touchUpInside)
-        button5.configureLayout { layout in
+        let contactButton = UIButton()
+        contactButton.setTitle("Contact", for: .normal)
+        contactButton.configureLayout { layout in
             layout.isEnabled = true
             layout.left = 0
-            layout.height = 40
+            layout.height = 35
             layout.paddingLeft = 20
             layout.alignSelf = .flexStart
         }
-        bottomContentColumn.addSubview(button5)
+        bottomContentColumn.addSubview(contactButton)
         
-        let button6 = UIButton()
-        button6.setTitle("Support", for: .normal)
-        button6.addTarget(self, action: #selector(didExpandTabBar), for: .touchUpInside)
-        button6.configureLayout { layout in
+        let supportButton = UIButton()
+        supportButton.setTitle("Support", for: .normal)
+        supportButton.configureLayout { layout in
             layout.isEnabled = true
             layout.left = 0
-            layout.height = 40
-            layout.paddingLeft = 20
-            layout.alignSelf = .flexStart
-        }
-        
-        bottomContentColumn.addSubview(button6)
-        
-        let button7 = UIButton()
-        button7.setTitle("Settings", for: .normal)
-        button7.addTarget(self, action: #selector(didExpandTabBar), for: .touchUpInside)
-        button7.configureLayout { layout in
-            layout.isEnabled = true
-            layout.left = 0
-            layout.height = 40
+            layout.height = 35
             layout.paddingLeft = 20
             layout.alignSelf = .flexStart
         }
         
-        bottomContentColumn.addSubview(button7)
+        bottomContentColumn.addSubview(supportButton)
+        
+        let settingsButton = UIButton()
+        settingsButton.setTitle("Settings", for: .normal)
+        settingsButton.configureLayout { layout in
+            layout.isEnabled = true
+            layout.left = 0
+            layout.height = 35
+            layout.paddingLeft = 20
+            layout.alignSelf = .flexStart
+        }
+        
+        bottomContentColumn.addSubview(settingsButton)
         
         addSpacers(for: bottomContentColumn)
         
@@ -385,6 +421,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     @objc func didTapOption(sender: Any) {
         guard let option = sender as? UIButton else { return }
         topMenu.yoga.isIncludedInLayout = false
@@ -416,6 +453,7 @@ class ViewController: UIViewController {
         self.view.yoga.applyLayout(preservingOrigin: true)
     }
     
+    
     func setSelectedMenuOptionColor(for option: UIButton) {
         topMenu.subviews.forEach { view in
             guard let button = view as? UIButton else { return }
@@ -424,9 +462,9 @@ class ViewController: UIViewController {
             } else {
                 button.setTitleColor(.white, for: .normal)
             }
-
         }
     }
+    
     @objc func didExpandTabBar() {
         isExpandedTabBar.accept(!isExpandedTabBar.value)
         
@@ -460,16 +498,4 @@ class ViewController: UIViewController {
     }
 }
 
-extension UIButton {
-    struct OptionHolder {
-        static var stored = [TopMenuOption]()
-    }
-    var menuOptions: [TopMenuOption] {
-        get {
-            return OptionHolder.stored
-        }
-        set(newValue) {
-            OptionHolder.stored.append(contentsOf: newValue)
-        }
-    }
-}
+
