@@ -10,6 +10,8 @@ target 'YogaLayouts' do
     pod 'RxSwift'
     pod 'RxRelay'
     pod 'RxCocoa'
+    pod 'ReSwift'
+    pod 'ReSwiftRouter'
 
   target 'YogaLayoutsTests' do
     inherit! :search_paths

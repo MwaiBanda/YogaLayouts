@@ -9,6 +9,7 @@ import UIKit
 import YogaKit
 import RxSwift
 import RxCocoa
+import ReSwift
 
 enum TopMenuOption: String {
     case topNews = "Top News"
@@ -41,8 +42,8 @@ class GodViewController: UIViewController {
         .entertainment,
         .health
     ]
-    var tableViewContent = BehaviorSubject<[String]>(
-        value: Array(repeating: "This is content", count: 25)
+    var tableViewContent = BehaviorRelay<[String]>(
+        value: []
     )
     var header = BehaviorRelay<String>(
         value: TopMenuOption.topNews.rawValue.uppercased()
@@ -53,6 +54,15 @@ class GodViewController: UIViewController {
         super.viewDidLoad()
         guard let rootView = view else { return }
         setupUI(rootView: rootView)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.dataStore.subscribe(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.dataStore.dispatch(getData)
+
     }
     
     func setupUI(rootView: UIView) {
@@ -68,7 +78,7 @@ class GodViewController: UIViewController {
         setupBottomTabBar(rootView: rootView)
     }
     
-    func setupTopTabBar(rootView: UIView) {
+    private func setupTopTabBar(rootView: UIView) {
         let top = UIView()
         top.backgroundColor = .clear
         top.configureLayout { (layout) in
@@ -163,7 +173,7 @@ class GodViewController: UIViewController {
         setSelectedMenuOptionColor(for: firstOption)
     }
     
-    func setupMainContent(rootView: UIView) {
+    private func setupMainContent(rootView: UIView) {
         let contentbg = UIView()
         contentbg.backgroundColor = .gray.withAlphaComponent(0.25)
         contentbg.configureLayout { (layout) in
@@ -189,10 +199,11 @@ class GodViewController: UIViewController {
         
         let banner = UIView()
         banner.backgroundColor = .clear
+        banner.alpha = 0
         banner.configureLayout { (layout) in
             layout.isEnabled = true
             layout.width = 100%
-            layout.height = 150
+            layout.height = 0
             layout.alignItems = .center
             layout.justifyContent = .center
         }
@@ -234,7 +245,7 @@ class GodViewController: UIViewController {
         
     }
     
-    func setupBottomTabBar(rootView: UIView) {
+    private func setupBottomTabBar(rootView: UIView) {
         let bottomTabBar = UIView()
         bottomTabBar.configureLayout { (layout) in
             layout.isEnabled = true
@@ -401,6 +412,18 @@ class GodViewController: UIViewController {
         
         bottomContentColumn.addSubview(settingsButton)
         
+        let showBannerButton = UIButton()
+        showBannerButton.setTitle("Show Banner", for: .normal)
+        showBannerButton.configureLayout { layout in
+            layout.isEnabled = true
+            layout.left = 0
+            layout.height = 35
+            layout.paddingLeft = 20
+            layout.alignSelf = .flexStart
+        }
+        
+        bottomContentColumn.addSubview(showBannerButton)
+        
         addSpacers(for: bottomContentColumn)
         
         isExpandedTabBar.map({ $0 ? 1 : 0 }).bind(to: bottomContentColumn.rx.alpha).disposed(by: bag)
@@ -408,7 +431,7 @@ class GodViewController: UIViewController {
     }
     
     
-    func addSpacers(for view: UIView) {
+    private func addSpacers(for view: UIView) {
         view.subviews.forEach { subView in
             let spacer = UIView()
             spacer.backgroundColor = UIColor.white.withAlphaComponent(0.25)
@@ -422,7 +445,7 @@ class GodViewController: UIViewController {
         }
     }
     
-    @objc func didTapOption(sender: Any) {
+    @objc private func didTapOption(sender: Any) {
         guard let option = sender as? UIButton else { return }
         topMenu.yoga.isIncludedInLayout = false
 
@@ -454,7 +477,7 @@ class GodViewController: UIViewController {
     }
     
     
-    func setSelectedMenuOptionColor(for option: UIButton) {
+    private func setSelectedMenuOptionColor(for option: UIButton) {
         topMenu.subviews.forEach { view in
             guard let button = view as? UIButton else { return }
             if option.attributedTitle(for: .normal) == button.attributedTitle(for: .normal) {
@@ -465,7 +488,7 @@ class GodViewController: UIViewController {
         }
     }
     
-    @objc func didExpandTabBar() {
+    @objc private func didExpandTabBar() {
         isExpandedTabBar.accept(!isExpandedTabBar.value)
         
         if isExpandedTabBar.value {
@@ -481,7 +504,7 @@ class GodViewController: UIViewController {
         print(isExpandedTabBar.value)
     }
     
-    @objc func didExpandTopBar() {
+    @objc private func didExpandTopBar() {
         isExpandedTopBar.accept(!isExpandedTopBar.value)
         
         if isExpandedTopBar.value {
@@ -499,3 +522,13 @@ class GodViewController: UIViewController {
 }
 
 
+extension GodViewController: StoreSubscriber {
+    typealias StoreSubscriberStateType = AppState
+    
+    func newState(state: AppState) {
+        print(state.tableContent)
+        tableViewContent.accept(state.tableContent)
+    }
+    
+    
+}

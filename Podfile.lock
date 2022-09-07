@@ -1,4 +1,7 @@
 PODS:
+  - ReSwift (4.0.1)
+  - ReSwiftRouter (0.6.0):
+    - ReSwift (~> 4.0.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -10,6 +13,8 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
+  - ReSwift
+  - ReSwiftRouter
   - RxCocoa
   - RxRelay
   - RxSwift
@@ -17,6 +22,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ReSwift
+    - ReSwiftRouter
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -24,12 +31,14 @@ SPEC REPOS:
     - YogaKit
 
 SPEC CHECKSUMS:
+  ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
+  ReSwiftRouter: 81f41b37a5dd1c88e1d3d10a660ff2dcc939ba7c
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: a2272e501c23170b9b61daf3575692a80f1a7c4c
+PODFILE CHECKSUM: d3a55e3891347b9832f290e4e075bae852fae047
 
 COCOAPODS: 1.11.3

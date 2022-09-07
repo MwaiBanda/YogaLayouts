@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		07BA2730088F486231AED026 /* Pods_YogaLayoutsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C4D4C30CE7A62306B2BF3ED /* Pods_YogaLayoutsTests.framework */; };
+		1C1799DA28C83BBB00F7246F /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799D928C83BBB00F7246F /* State.swift */; };
+		1C1799DC28C83BD000F7246F /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799DB28C83BD000F7246F /* Reducers.swift */; };
+		1C1799DE28C83C2A00F7246F /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799DD28C83C2A00F7246F /* Actions.swift */; };
 		1CC795E428C13B0F00A2F0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */; };
 		1CC795E828C13B0F00A2F0CF /* GodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E728C13B0F00A2F0CF /* GodViewController.swift */; };
 		1CC795ED28C13B1000A2F0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC795EC28C13B1000A2F0CF /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1799D928C83BBB00F7246F /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		1C1799DB28C83BD000F7246F /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
+		1C1799DD28C83C2A00F7246F /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		1CC795E028C13B0F00A2F0CF /* YogaLayouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaLayouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC795E728C13B0F00A2F0CF /* GodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GodViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C1799D728C834D200F7246F /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				1C1799D928C83BBB00F7246F /* State.swift */,
+				1C1799DB28C83BD000F7246F /* Reducers.swift */,
+				1C1799DD28C83C2A00F7246F /* Actions.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
 		1CC795D728C13B0F00A2F0CF = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +132,7 @@
 		1CC795E228C13B0F00A2F0CF /* YogaLayouts */ = {
 			isa = PBXGroup;
 			children = (
+				1C1799D728C834D200F7246F /* Redux */,
 				1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */,
 				1CC795E728C13B0F00A2F0CF /* GodViewController.swift */,
 				1CC795EC28C13B1000A2F0CF /* Assets.xcassets */,
@@ -405,10 +422,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C1799DC28C83BD000F7246F /* Reducers.swift in Sources */,
 				1CC7961828C5567E00A2F0CF /* UIButton+Swift.swift in Sources */,
 				1CC795E828C13B0F00A2F0CF /* GodViewController.swift in Sources */,
 				1CC795E428C13B0F00A2F0CF /* AppDelegate.swift in Sources */,
+				1C1799DA28C83BBB00F7246F /* State.swift in Sources */,
 				1CC7961A28C6F8B700A2F0CF /* UIColor+Swift.swift in Sources */,
+				1C1799DE28C83C2A00F7246F /* Actions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
