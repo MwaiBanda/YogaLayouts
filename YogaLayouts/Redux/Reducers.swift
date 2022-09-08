@@ -9,14 +9,25 @@ import Foundation
 import ReSwift
 
 func mainAppReducer(action: Action, state: AppState?) -> AppState {
-    AppState(tableContent: tableContentReducer(action: action, state: state))
+    AppState(
+        content: contentReducer(action: action, state: state),
+        isTabBarExpanded: isTabBarExpandedReducer(action: action, state: state)
+    )
 }
 
 
-func tableContentReducer(action: Action, state: AppState?) -> [String] {
-    var state = state?.tableContent ?? []
-    if case let content as NewTableContent = action {
+func contentReducer(action: Action, state: AppState?) -> ContentData {
+    var state = state?.content ?? ContentData()
+    if case let content as NewContent = action {
         state = content.data
+    }
+    return state
+}
+
+func isTabBarExpandedReducer(action: Action, state: AppState?) -> Bool {
+    var state = state?.isTabBarExpanded ?? false
+    if case let content as SetTabBarState = action {
+        state = content.state
     }
     return state
 }

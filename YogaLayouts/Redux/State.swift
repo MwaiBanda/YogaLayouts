@@ -9,5 +9,12 @@ import Foundation
 import ReSwift
 
 struct AppState: StateType {
+    var content = ContentData()
+    var isTabBarExpanded = false
+}
+
+
+struct ContentData {
     var tableContent = [String]()
+    var topMenuOptions = [TopMenuOption]()
 }

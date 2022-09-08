@@ -11,6 +11,7 @@
 		1C1799DA28C83BBB00F7246F /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799D928C83BBB00F7246F /* State.swift */; };
 		1C1799DC28C83BD000F7246F /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799DB28C83BD000F7246F /* Reducers.swift */; };
 		1C1799DE28C83C2A00F7246F /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799DD28C83C2A00F7246F /* Actions.swift */; };
+		1C1799E028C8F1B900F7246F /* TopMenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1799DF28C8F1B900F7246F /* TopMenuOption.swift */; };
 		1CC795E428C13B0F00A2F0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */; };
 		1CC795E828C13B0F00A2F0CF /* GodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC795E728C13B0F00A2F0CF /* GodViewController.swift */; };
 		1CC795ED28C13B1000A2F0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC795EC28C13B1000A2F0CF /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		1C1799D928C83BBB00F7246F /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1C1799DB28C83BD000F7246F /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		1C1799DD28C83C2A00F7246F /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		1C1799DF28C8F1B900F7246F /* TopMenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuOption.swift; sourceTree = "<group>"; };
 		1CC795E028C13B0F00A2F0CF /* YogaLayouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaLayouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC795E328C13B0F00A2F0CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC795E728C13B0F00A2F0CF /* GodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GodViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				1CC795F128C13B1000A2F0CF /* Info.plist */,
 				1CC7961728C5567E00A2F0CF /* UIButton+Swift.swift */,
 				1CC7961928C6F8B700A2F0CF /* UIColor+Swift.swift */,
+				1C1799DF28C8F1B900F7246F /* TopMenuOption.swift */,
 			);
 			path = YogaLayouts;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				1C1799DA28C83BBB00F7246F /* State.swift in Sources */,
 				1CC7961A28C6F8B700A2F0CF /* UIColor+Swift.swift in Sources */,
 				1C1799DE28C83C2A00F7246F /* Actions.swift in Sources */,
+				1C1799E028C8F1B900F7246F /* TopMenuOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,12 @@
 import Foundation
 import ReSwift
 
-struct NewTableContent: Action {
-    let data: [String]
+struct NewContent: Action {
+    let data: ContentData
+}
+
+struct SetTabBarState: Action {
+    let state: Bool
 }
 
 func getData(
@@ -17,5 +21,20 @@ func getData(
     _ store: Store<AppState>,
     _ actionCreatorCallback: @escaping ((Store<AppState>.ActionCreator) -> Void)
 ) {
-    actionCreatorCallback{ state,store -> Action in NewTableContent(data: Array(repeating: "This is content", count: 25)) }
+    actionCreatorCallback{ state,store -> Action in NewContent(
+        data: ContentData(
+            tableContent: Array(repeating: "This is content", count: 25),
+            topMenuOptions: [
+                .topNews,
+                .us,
+                .world,
+                .insideIsrael,
+                .nationalSecurity,
+                .politics,
+                .entertainment,
+                .health
+            ]
+        )
+    )}
 }
+

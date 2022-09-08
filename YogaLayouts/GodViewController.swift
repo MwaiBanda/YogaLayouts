@@ -11,44 +11,20 @@ import RxSwift
 import RxCocoa
 import ReSwift
 
-enum TopMenuOption: String {
-    case topNews = "Top News"
-    case us = "US"
-    case world = "World"
-    case insideIsrael = "Inside Israel"
-    case nationalSecurity = "National Security"
-    case politics = "Politics"
-    case entertainment = "Entertainment"
-    case health = "Health"
-}
+
 
 class GodViewController: UIViewController {
-    var isExpandedTabBar = BehaviorRelay<Bool>(value: false)
-    var isExpandedTopBar = BehaviorRelay<Bool>(value: false)
-    let bag = DisposeBag()
+    let diposeBag = DisposeBag()
     var bottomContentColumn: UIView!
     var topMenu: UIView!
     var topTabBarArrow: UIImageView!
     var bottomTabBarArrow: UIImageView!
     var topCenterRow: UIView!
     var headerButton: UIButton!
-    var topMenuOptions: [TopMenuOption] = [
-        .topNews,
-        .us,
-        .world,
-        .insideIsrael,
-        .nationalSecurity,
-        .politics,
-        .entertainment,
-        .health
-    ]
-    var tableViewContent = BehaviorRelay<[String]>(
-        value: []
-    )
-    var header = BehaviorRelay<String>(
-        value: TopMenuOption.topNews.rawValue.uppercased()
-    )
     var tableview: UITableView!
+    var isExpandedTopBar = BehaviorRelay<Bool>(value: false)
+    var tableViewContent = BehaviorRelay<[String]>(value: [])
+    var header = BehaviorRelay<String>(value: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +38,7 @@ class GodViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         appDelegate.dataStore.dispatch(getData)
-
+      
     }
     
     func setupUI(rootView: UIView) {
@@ -145,32 +121,14 @@ class GodViewController: UIViewController {
         topCenterRow.addSubview(headerButton)
         topCenterRow.addSubview(topTabBarArrow)
         
-        
-        for i in 0..<topMenuOptions.count {
-            let menuButton = UIButton()
-            menuButton.addTarget(self, action: #selector(didTapOption(sender:)), for: .touchUpInside)
-            menuButton.menuOptions = [topMenuOptions[i]]
-            menuButton.tag = i
-            menuButton.setAttributedTitle(NSAttributedString(string: topMenuOptions[i].rawValue, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]), for: .normal)
-            menuButton.configureLayout { layout in
-                layout.isEnabled = true
-                layout.paddingLeft = 20
-                layout.height = 40
-            }
-            topMenu.addSubview(menuButton)
-        }
-        
-        
         header.bind(to: headerButton.rx.title())
-            .disposed(by: bag)
+            .disposed(by: diposeBag)
         isExpandedTopBar.map({ $0 ? 1 : 0 })
             .bind(to: topMenu.rx.alpha)
-            .disposed(by: bag)
+            .disposed(by: diposeBag)
         
-        addSpacers(for: topMenu)
         
-        guard let firstOption = topMenu.subviews.first as? UIButton else { return }
-        setSelectedMenuOptionColor(for: firstOption)
+       
     }
     
     private func setupMainContent(rootView: UIView) {
@@ -241,7 +199,7 @@ class GodViewController: UIViewController {
             cell.textLabel?.textColor = .darkGray
             cell.textLabel?.text = content
             
-        }.disposed(by: bag)
+        }.disposed(by: diposeBag)
         
     }
     
@@ -299,7 +257,7 @@ class GodViewController: UIViewController {
         centerRow.layer.shadowRadius = 10.0
         centerRow.backgroundColor = .lightBlue
         centerRow.layer.cornerRadius = 2
-        let centerRowTapGesture = UITapGestureRecognizer(target: self, action: #selector(didExpandTabBar))
+        let centerRowTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapTabBar))
         centerRow.addGestureRecognizer(centerRowTapGesture)
         centerRow.isUserInteractionEnabled = true
         centerRow.configureLayout { layout in
@@ -362,7 +320,7 @@ class GodViewController: UIViewController {
             layout.paddingVertical = 20
             
         }
-        bottomContentColumn.yoga.isIncludedInLayout = isExpandedTabBar.value
+        bottomContentColumn.yoga.isIncludedInLayout = false
         bottomContentCotainer.addSubview(bottomContentColumn)
         
         let loginButton = UIButton()
@@ -426,7 +384,6 @@ class GodViewController: UIViewController {
         
         addSpacers(for: bottomContentColumn)
         
-        isExpandedTabBar.map({ $0 ? 1 : 0 }).bind(to: bottomContentColumn.rx.alpha).disposed(by: bag)
         rootView.yoga.applyLayout(preservingOrigin: true)
     }
     
@@ -488,10 +445,13 @@ class GodViewController: UIViewController {
         }
     }
     
-    @objc private func didExpandTabBar() {
-        isExpandedTabBar.accept(!isExpandedTabBar.value)
-        
-        if isExpandedTabBar.value {
+    @objc private func didTapTabBar() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.dataStore.dispatch(SetTabBarState(state: !appDelegate.dataStore.state.isTabBarExpanded))
+    }
+    
+    func adjustTabBar(state: Bool){
+        if state {
             bottomContentColumn.yoga.isIncludedInLayout = true
             bottomTabBarArrow.image = UIImage(named: "chevron.down")
             
@@ -500,8 +460,6 @@ class GodViewController: UIViewController {
             bottomTabBarArrow.image = UIImage(named: "chevron.up")
         }
         self.view.yoga.applyLayout(preservingOrigin: true)
-        
-        print(isExpandedTabBar.value)
     }
     
     @objc private func didExpandTopBar() {
@@ -519,6 +477,32 @@ class GodViewController: UIViewController {
         
         print(isExpandedTopBar.value)
     }
+    
+    func setTopMenuOptions(options: [TopMenuOption]) {
+        topMenu.subviews.forEach { $0.removeFromSuperview() }
+        for i in 0..<options.count {
+            let menuButton = UIButton()
+            menuButton.addTarget(self, action: #selector(didTapOption(sender:)), for: .touchUpInside)
+            menuButton.menuOptions = [options[i]]
+            menuButton.tag = i
+            menuButton.setAttributedTitle(NSAttributedString(string: options[i].rawValue, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]), for: .normal)
+            menuButton.configureLayout { layout in
+                layout.isEnabled = true
+                layout.paddingLeft = 20
+                layout.height = 40
+            }
+            topMenu.addSubview(menuButton)
+        }
+        addSpacers(for: topMenu)
+        
+        guard let firstOptionTitle = options.first?.rawValue.uppercased() else { return }
+        header.accept(firstOptionTitle)
+
+        guard let firstOptionButton = topMenu.subviews.first as? UIButton else { return }
+        setSelectedMenuOptionColor(for: firstOptionButton)
+        headerButton.yoga.markDirty()
+        self.view.yoga.applyLayout(preservingOrigin: true)
+    }
 }
 
 
@@ -526,9 +510,11 @@ extension GodViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
     
     func newState(state: AppState) {
-        print(state.tableContent)
-        tableViewContent.accept(state.tableContent)
+        tableViewContent.accept(state.content.tableContent)
+        setTopMenuOptions(options: state.content.topMenuOptions)
+        adjustTabBar(state: state.isTabBarExpanded)
     }
-    
-    
+   
 }
+
+
